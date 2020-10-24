@@ -1,0 +1,27 @@
+.cf-btn {
+    display: flex;
+}
+.cf-btn > *:first-child {
+    margin-right: 10px;
+}
+.cf-btn > * {
+    height: 40px;
+    width: 40px;
+    display: block;
+    border-radius: 1000px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.cf-btn > *:not(:disabled):hover {
+    background-color: var(--blue-4);
+}
+.cf-btn > *:not(:disabled):active {
+    background-color: #353254;
+}
+.cf-btn > * {
+    background-color: var(--blue-3);
+}
+.cf-btn > *:disabled {
+    background-color: var(--gray-6);
+    color: var(--blue-1-1);
+}

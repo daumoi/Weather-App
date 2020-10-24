@@ -1,0 +1,17 @@
+.detail-weather {
+    background-color: var(--blue-1);
+    flex: 1;
+    display: grid;
+    justify-items: center;
+}
+.detail-weather > .detail-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 15px;
+}
+.detail-weather > .detail-container > .cf-btn {
+    justify-content: flex-end;
+}
+.detail-weather > .detail-container > .list-weathers {
+}

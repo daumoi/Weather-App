@@ -1,0 +1,26 @@
+.weather {
+    padding: 15px;
+    background-color: var(--blue-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 120px;
+}
+.weather .day {
+    font-weight: 500;
+    font-size: 16px;
+}
+.weather .image-weather {
+    width: 70%;
+}
+.weather .temperature {
+    font-weight: 500;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin-top: 25px;
+}
+.weather .temperature > .min {
+    color: var(--gray-5);
+}

@@ -1,0 +1,10 @@
+.list-weathers {
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.list-weathers > .weather {
+    width: 20%;
+    margin-right: 10px;
+    margin-left: 10px;
+}

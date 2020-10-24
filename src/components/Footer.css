@@ -1,0 +1,10 @@
+footer p {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--gray-2);
+    text-align: center;
+}
+footer p > a {
+    color: var(--gray-2);
+}
