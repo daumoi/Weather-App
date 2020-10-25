@@ -1,4 +1,31 @@
-.search-bar {
+#search-bar {
     position: absolute;
-    visibility: hidden;
+    height: 100%;
+    width: var(--w-search-bar);
+    background-color: var(--blue-2);
+    z-index: 1;
+    left: calc(0px - var(--w-search-bar));
+    transition: 0.4s;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+}
+#search-bar.active {
+    left: 0;
+}
+#search-bar .close-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+#search-bar .close-btn button {
+    color: var(--gray-6);
+    background-color: transparent;
+    border-radius: 1000px;
+    transition: 0.2s;
+}
+#search-bar .close-btn button:active {
+    transform: rotate(90deg);
+}
+#search-bar .result {
+    flex: 1;
 }

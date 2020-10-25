@@ -3,7 +3,15 @@ import { connect } from "react-redux";
 import "./SearchButton.css";
 
 export const SearchButton = () => {
-    return <button className="search-btn">Search for places</button>;
+    const clickHandler = () => {
+        document.getElementById("search-bar").classList.add("active");
+    };
+
+    return (
+        <button className="search-btn" onClick={clickHandler}>
+            Search for places
+        </button>
+    );
 };
 
 const mapStateToProps = (state) => ({});
