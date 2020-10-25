@@ -4,10 +4,16 @@ import ImageWeather from "./ImageWeather";
 import Loading from "./Loading";
 import "./Weather.css";
 
-export const Weather = ({ isLoading }) => {
+export const Weather = ({ isLoading, index, weather }) => {
     return (
         <div className="weather">
-            <p className="day">Tomorrow</p>
+            <p className="day">
+                {index === 0
+                    ? "Tomorrow"
+                    : new Date(weather.applicable_date)
+                          .toUTCString()
+                          .slice(0, 11)}
+            </p>
             {isLoading ? (
                 <>
                     <Loading width={60} height={67} />
@@ -18,14 +24,14 @@ export const Weather = ({ isLoading }) => {
                 </>
             ) : (
                 <>
-                    <ImageWeather />
+                    <ImageWeather weatherState={weather.weather_state_abbr} />
                     <div className="temperature">
                         <p className="max">
-                            <span>16</span>
+                            <span>{Math.floor(weather.max_temp)}</span>
                             <span>&deg;C</span>
                         </p>
                         <p className="min">
-                            <span>11</span>
+                            <span>{Math.floor(weather.min_temp)}</span>
                             <span>&deg;C</span>
                         </p>
                     </div>

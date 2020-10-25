@@ -4,7 +4,7 @@ import { Navigation } from "@material-ui/icons";
 import Loading from "./Loading";
 import "./TodayHightlight.css";
 
-export const TodayHightlight = ({ isLoading }) => {
+export const TodayHightlight = ({ isLoading, highLight }) => {
     return (
         <div className="today-hightlight">
             <h2>Today's Hightlights</h2>
@@ -19,12 +19,12 @@ export const TodayHightlight = ({ isLoading }) => {
                     ) : (
                         <>
                             <p className="number">
-                                <span>7</span>
-                                <span>mph</span>
+                                <span>{Math.floor(highLight.wind_speed)}</span>
+                                <span> mph</span>
                             </p>
                             <p className="wind-direction">
                                 <Navigation />
-                                <span>WSW</span>
+                                <span>{highLight.wind_direction_compass}</span>
                             </p>
                         </>
                     )}
@@ -35,15 +35,19 @@ export const TodayHightlight = ({ isLoading }) => {
                         <Loading width={150} height={60} />
                     ) : (
                         <p className="number">
-                            <span>84</span>
-                            <span>%</span>
+                            <span>{highLight.humidity}</span>
+                            <span> %</span>
                         </p>
                     )}
 
                     <div className="range">
                         <div
                             className="slide"
-                            style={{ width: isLoading ? "0" : "84%" }}
+                            style={{
+                                width: isLoading
+                                    ? "0"
+                                    : highLight.humidity + "%",
+                            }}
                         ></div>
                         <div className="start">0</div>
                         <div className="middle">50</div>
@@ -57,8 +61,8 @@ export const TodayHightlight = ({ isLoading }) => {
                         <Loading width={150} height={60} />
                     ) : (
                         <p className="number">
-                            <span>6,4</span>
-                            <span>miles</span>
+                            <span>{highLight.visibility.toFixed(1)}</span>
+                            <span> miles</span>
                         </p>
                     )}
                 </div>
@@ -68,8 +72,8 @@ export const TodayHightlight = ({ isLoading }) => {
                         <Loading width={150} height={60} />
                     ) : (
                         <p className="number">
-                            <span>998</span>
-                            <span>mb</span>
+                            <span>{Math.floor(highLight.air_pressure)}</span>
+                            <span> mb</span>
                         </p>
                     )}
                 </div>

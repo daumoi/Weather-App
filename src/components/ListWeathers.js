@@ -3,11 +3,11 @@ import { connect } from "react-redux";
 import Weather from "./Weather";
 import "./ListWeathers.css";
 
-export const ListWeathers = () => {
+export const ListWeathers = ({ weathers }) => {
     return (
         <div className="list-weathers">
-            {[0, 0, 0, 0, 0].map((x, i) => (
-                <Weather key={i} />
+            {weathers.map((x, i) => (
+                <Weather key={i} index={i} weather={x} />
             ))}
         </div>
     );

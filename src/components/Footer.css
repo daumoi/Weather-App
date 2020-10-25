@@ -7,4 +7,5 @@ footer p {
 }
 footer p > a {
     color: var(--gray-2);
+    text-decoration: none;
 }

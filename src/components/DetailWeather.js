@@ -6,20 +6,23 @@ import Footer from "./Footer";
 import CFButton from "./CFButton";
 import "./DetailWeather.css";
 
-export const DetailWeather = () => {
+export const DetailWeather = ({ weathers, highLight }) => {
     return (
         <div className="detail-weather">
             <div className="detail-container">
                 <CFButton />
-                <ListWeathers />
-                <TodayHightlight />
+                <ListWeathers weathers={weathers} />
+                <TodayHightlight highLight={highLight} />
                 <Footer />
             </div>
         </div>
     );
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+    weathers: state.weathers.slice(1),
+    highLight: state.weathers[0],
+});
 
 const mapDispatchToProps = {};
 

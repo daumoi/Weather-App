@@ -48,7 +48,7 @@ export const CurrentWeather = ({ weather, isLoading, city }) => {
                 </>
             ) : (
                 <>
-                    <ImageWeather weatherState="lightrain" />
+                    <ImageWeather weatherState={weather.weather_state_abbr} />
                     <p className="temperature">
                         <span>{Math.floor(weather.the_temp)}</span>
                         <span>&deg;C</span>
