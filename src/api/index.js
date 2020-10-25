@@ -6,7 +6,10 @@ const searchIdURL =
     "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/";
 export const searchCountry = (x, y) => {
     if (y) return fetch(searchLocationURL + x + "," + y);
-    else return fetch(searchCountryURL + x);
+    else
+        return fetch(searchCountryURL + x)
+            .then((res) => res.json())
+            .then((data) => data.map((x) => ({ city: x.title, id: x.woeid })));
 };
 
 export const getWeather = (id) => {

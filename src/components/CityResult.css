@@ -1,0 +1,25 @@
+.city-result {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px 15px;
+    border: 1px solid transparent;
+    transition: 0.1s;
+}
+.city-result > p {
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--gray-6);
+}
+.city-result > svg {
+    color: var(--gray-2);
+    opacity: 0;
+    transition: 0.1s;
+}
+.city-result:hover {
+    border: 1px solid #616475;
+}
+.city-result:hover > svg {
+    opacity: 1;
+}

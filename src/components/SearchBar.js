@@ -3,10 +3,12 @@ import { connect } from "react-redux";
 import { Clear } from "@material-ui/icons";
 import SearchForm from "./SearchForm";
 import CityResult from "./CityResult";
+import ReactLoading from "react-loading";
 import "./SearchBar.css";
 
 export const SearchBar = () => {
     const [results, setResults] = useState([]);
+    const [isLoading, setLoading] = useState(false);
 
     const closeHandler = () => {
         document.getElementById("search-bar").classList.remove("active");
@@ -19,12 +21,18 @@ export const SearchBar = () => {
                     <Clear />
                 </button>
             </div>
-            <SearchForm setResults={setResults} />
-            <div className="result">
-                {results.map((x, i) => (
-                    <CityResult key={i} />
-                ))}
-            </div>
+            <SearchForm setResults={setResults} setLoading={setLoading} />
+            {isLoading ? (
+                <div className="loading">
+                    <ReactLoading type="spin" color="var(--gray-5)" />
+                </div>
+            ) : (
+                <div className="result">
+                    {results.map((x, i) => (
+                        <CityResult key={i} data={x} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 };
