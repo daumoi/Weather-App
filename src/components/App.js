@@ -1,10 +1,18 @@
 import React, { useEffect } from "react";
-import { searchCountry } from "../api";
+import { connect } from "react-redux";
+import { searchCity } from "../api";
 import SearchBar from "./SearchBar";
 import CurrentWeather from "./CurrentWeather";
 import DetailWeather from "./DetailWeather";
+import { setCity, setLocationCity } from "../store/citySlice";
 
-export default function App() {
+export function App({ setCity, setLocationCity }) {
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(({ coords }) =>
+            setLocationCity({ latt: coords.latitude, long: coords.longitude })
+        );
+    });
+
     return (
         <>
             <SearchBar />
@@ -13,3 +21,9 @@ export default function App() {
         </>
     );
 }
+
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = { setCity, setLocationCity };
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

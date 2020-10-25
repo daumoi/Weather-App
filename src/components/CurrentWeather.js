@@ -8,7 +8,7 @@ import ImageWeather from "./ImageWeather";
 import { LocationOn } from "@material-ui/icons";
 import Loading from "./Loading";
 
-export const CurrentWeather = ({ weather = {}, isLoading }) => {
+export const CurrentWeather = ({ weather, isLoading, city }) => {
     return (
         <div className="current-weather">
             <SearchButton />
@@ -20,29 +20,29 @@ export const CurrentWeather = ({ weather = {}, isLoading }) => {
                         width={150}
                         height={150}
                         style={{
-                            "margin-top": "45px",
+                            marginTop: "45px",
                         }}
                     />
                     <Loading
                         width={150}
                         height={42}
                         style={{
-                            "margin-top": "45px",
+                            marginTop: "45px",
                         }}
                     />
                     <Loading
                         width={150}
                         height={20}
                         style={{
-                            "margin-top": "45px",
+                            marginTop: "45px",
                         }}
                     />
                     <Loading
                         width={150}
                         height={28}
                         style={{
-                            "margin-top": "15px",
-                            "margin-bottom": "20px",
+                            marginTop: "15px",
+                            marginBottom: "20px",
                         }}
                     />
                 </>
@@ -50,20 +50,26 @@ export const CurrentWeather = ({ weather = {}, isLoading }) => {
                 <>
                     <ImageWeather weatherState="lightrain" />
                     <p className="temperature">
-                        <span>15</span>
+                        <span>{Math.floor(weather.the_temp)}</span>
                         <span>&deg;C</span>
                     </p>
-                    <p className="weather-state">Shower</p>
+                    <p className="weather-state">
+                        {weather.weather_state_name}
+                    </p>
                     <p className="day">
                         <span>Today</span>
                         <span> • </span>
-                        <span>Fri, 5 Jun</span>
+                        <span>
+                            {new Date(weather.applicable_date)
+                                .toUTCString()
+                                .slice(0, 11)}
+                        </span>
                     </p>
                     <p className="location">
                         <span>
                             <LocationOn />
                         </span>
-                        <span>Helsinki</span>
+                        <span>{city}</span>
                     </p>
                 </>
             )}
@@ -71,7 +77,11 @@ export const CurrentWeather = ({ weather = {}, isLoading }) => {
     );
 };
 
-const mapStateToProps = (state) => ({ isLoading: state.isLoading });
+const mapStateToProps = (state) => ({
+    isLoading: state.isLoading,
+    weather: state.weathers[0],
+    city: state.city.name,
+});
 
 const mapDispatchToProps = {};
 

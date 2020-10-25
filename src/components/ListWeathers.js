@@ -7,7 +7,7 @@ export const ListWeathers = () => {
     return (
         <div className="list-weathers">
             {[0, 0, 0, 0, 0].map((x, i) => (
-                <Weather />
+                <Weather key={i} />
             ))}
         </div>
     );

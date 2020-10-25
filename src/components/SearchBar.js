@@ -29,7 +29,7 @@ export const SearchBar = () => {
             ) : (
                 <div className="result">
                     {results.map((x, i) => (
-                        <CityResult key={i} data={x} />
+                        <CityResult key={i} data={x} close={closeHandler} />
                     ))}
                 </div>
             )}

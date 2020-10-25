@@ -4,14 +4,19 @@ const searchLocationURL =
     "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?lattlong=";
 const searchIdURL =
     "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/";
-export const searchCountry = (x, y) => {
-    if (y) return fetch(searchLocationURL + x + "," + y);
+export const searchCity = (x, y) => {
+    if (y)
+        return fetch(searchLocationURL + x + "," + y)
+            .then((res) => res.json())
+            .then((data) => data.map((x) => ({ name: x.title, id: x.woeid })));
     else
         return fetch(searchCountryURL + x)
             .then((res) => res.json())
-            .then((data) => data.map((x) => ({ city: x.title, id: x.woeid })));
+            .then((data) => data.map((x) => ({ name: x.title, id: x.woeid })));
 };
 
-export const getWeather = (id) => {
-    return fetch(searchIdURL + id);
+export const getWeathers = (id) => {
+    return fetch(searchIdURL + id)
+        .then((res) => res.json())
+        .then((data) => data.consolidated_weather);
 };
