@@ -7,8 +7,9 @@ import "./CurrentWeather.css";
 import ImageWeather from "./ImageWeather";
 import { LocationOn } from "@material-ui/icons";
 import Loading from "./Loading";
+import { convertToF } from "../api";
 
-export const CurrentWeather = ({ weather, isLoading, city }) => {
+export const CurrentWeather = ({ weather, isLoading, city, CF }) => {
     return (
         <div className="current-weather">
             <SearchButton />
@@ -50,8 +51,12 @@ export const CurrentWeather = ({ weather, isLoading, city }) => {
                 <>
                     <ImageWeather weatherState={weather.weather_state_abbr} />
                     <p className="temperature">
-                        <span>{Math.floor(weather.the_temp)}</span>
-                        <span>&deg;C</span>
+                        <span>
+                            {CF === "C"
+                                ? Math.floor(weather.the_temp)
+                                : Math.floor(convertToF(weather.the_temp))}
+                        </span>
+                        <span>&deg;{CF}</span>
                     </p>
                     <p className="weather-state">
                         {weather.weather_state_name}
@@ -81,6 +86,7 @@ const mapStateToProps = (state) => ({
     isLoading: state.isLoading,
     weather: state.weathers[0],
     city: state.city.name,
+    CF: state.CF,
 });
 
 const mapDispatchToProps = {};

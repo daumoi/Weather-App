@@ -4,7 +4,7 @@ import ImageWeather from "./ImageWeather";
 import Loading from "./Loading";
 import "./Weather.css";
 
-export const Weather = ({ isLoading, index, weather }) => {
+export const Weather = ({ isLoading, index, weather, CF }) => {
     return (
         <div className="weather">
             <p className="day">
@@ -28,11 +28,11 @@ export const Weather = ({ isLoading, index, weather }) => {
                     <div className="temperature">
                         <p className="max">
                             <span>{Math.floor(weather.max_temp)}</span>
-                            <span>&deg;C</span>
+                            <span>&deg;{CF}</span>
                         </p>
                         <p className="min">
                             <span>{Math.floor(weather.min_temp)}</span>
-                            <span>&deg;C</span>
+                            <span>&deg;{CF}</span>
                         </p>
                     </div>
                 </>

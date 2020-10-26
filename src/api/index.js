@@ -20,3 +20,8 @@ export const getWeathers = (id) => {
         .then((res) => res.json())
         .then((data) => data.consolidated_weather);
 };
+
+export const convertToF = (celsius) => {
+    let fahrenheit = (celsius * 9) / 5 + 32;
+    return fahrenheit;
+};

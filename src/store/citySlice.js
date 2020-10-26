@@ -9,7 +9,6 @@ export const setLocationCity = createAsyncThunk(
         dispatch(setLoading(true));
         const res = await searchCity(latt, long).then((arr) => arr[0]);
         const weathers = await getWeathers(res.id);
-        console.log(weathers);
         dispatch(setWeathers(weathers));
         dispatch(setLoading(false));
         return res;

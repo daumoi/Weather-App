@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { searchCity } from "../api";
 import SearchBar from "./SearchBar";
 import CurrentWeather from "./CurrentWeather";
 import DetailWeather from "./DetailWeather";
-import { setCity, setLocationCity } from "../store/citySlice";
+import { setLocationCity } from "../store/citySlice";
 
-export function App({ setCity, setLocationCity }) {
+export function App({ setLocationCity }) {
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(({ coords }) =>
             setLocationCity({ latt: coords.latitude, long: coords.longitude })
@@ -24,6 +23,6 @@ export function App({ setCity, setLocationCity }) {
 
 const mapStateToProps = (state) => ({});
 
-const mapDispatchToProps = { setCity, setLocationCity };
+const mapDispatchToProps = { setLocationCity };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
