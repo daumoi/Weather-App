@@ -8,10 +8,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px 15px;
+    padding: 20px 10px;
 }
 .detail-weather > .detail-container > .cf-btn {
     justify-content: flex-end;
 }
 .detail-weather > .detail-container > .list-weathers {
+}
+@media screen and (max-width: 768px) {
+    .detail-weather > .detail-container > .cf-btn {
+        display: none;
+    }
 }

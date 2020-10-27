@@ -7,7 +7,9 @@ export const ListWeathers = ({ weathers, CF }) => {
     return (
         <div className="list-weathers">
             {weathers.map((x, i) => (
-                <Weather key={i} index={i} weather={x} CF={CF} />
+                <div className="col" key={i}>
+                    <Weather index={i} weather={x} CF={CF} />
+                </div>
             ))}
         </div>
     );

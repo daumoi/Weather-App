@@ -1,6 +1,7 @@
 .current-weather {
     background-color: var(--blue-2);
     width: var(--w-search-bar);
+    height: 100vh;
     background-image: url("../images/Cloud-background.png");
     background-repeat: no-repeat;
     background-size: 125%;

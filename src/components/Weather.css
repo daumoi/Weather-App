@@ -7,6 +7,7 @@
     align-items: center;
     max-width: 130px;
     min-width: 125px;
+    height: 100%;
 }
 .weather .day {
     font-weight: 500;
@@ -25,4 +26,10 @@
 }
 .weather .temperature > .min {
     color: var(--gray-5);
+}
+
+@media screen and (max-width: 768px) {
+    .weather {
+        max-width: none;
+    }
 }

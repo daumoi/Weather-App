@@ -41,5 +41,12 @@ button:focus {
 
 #root {
     display: flex;
+    flex-wrap: wrap;
     height: 100vh;
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --w-search-bar: 100%;
+    }
 }

@@ -1,10 +1,17 @@
 .list-weathers {
     display: flex;
+    flex-wrap: wrap;
     margin-left: -10px;
     margin-right: -10px;
 }
-.list-weathers > .weather {
+.list-weathers > .col {
     width: 20%;
-    margin-right: 10px;
-    margin-left: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+@media screen and (max-width: 768px) {
+    .list-weathers > .col {
+        width: 50%;
+        margin-top: 20px;
+    }
 }

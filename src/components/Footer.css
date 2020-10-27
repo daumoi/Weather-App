@@ -9,3 +9,9 @@ footer p > a {
     color: var(--gray-2);
     text-decoration: none;
 }
+
+@media screen and (max-width: 768px) {
+    footer {
+        margin-top: 20px;
+    }
+}
